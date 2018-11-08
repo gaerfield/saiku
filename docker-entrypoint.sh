@@ -39,7 +39,7 @@ function install_license {
   SAIKU_LICENSE_UPLOAD=http://admin:admin@localhost:8080/saiku/rest/saiku/api/license/
 
   log_info "Wating for saiku ..."
-  until $(curl --output /dev/null --silent --head --fail $SAIKU_PING_URL); do
+  until $(curl --output /dev/null --max-time 5 --silent --head --fail $SAIKU_PING_URL); do
       log_info 'still waiting ...'
       sleep 1
   done
