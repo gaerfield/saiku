@@ -14,12 +14,14 @@ function log_error {
 
 function ensure_InstanceDir {
   log_info "bootstrapping instance data directory $INSTANCEDIR"
-  cp -r $INSTANCEDIR_BOOTSTRAP/* $INSTANCEDIR
+  cp -r $INSTANCEDIR_BOOTSTRAP/* $INSTANCEDIR/
 }
 
 function copy_extraCubes {
   log_info "copying additional Cubes from $ADDITIONAL_CUBES to $INSTANCEDIR"
-  cp -r $ADDITIONAL_CUBES/* $INSTANCEDIR
+  if [ ! -z "$(ls -A $ADDITIONAL_CUBES)" ]; then
+   cp -r $ADDITIONAL_CUBES/* $INSTANCEDIR/
+  fi
 }
 
 function process_init_file {
