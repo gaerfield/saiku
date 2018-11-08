@@ -1,0 +1,13 @@
+version: '2'
+services:
+  saiku:
+    build:
+      context: ./build/saiku
+    image: saiku
+    ports:
+      - 10040:8080
+    volumes:
+      - ./config/saiku_license.lic:/saiku_license.lic
+      - ./config/cubes:/additionalCubes
+      - ./config/bootstrapScripts:/docker-entrypoint-initdb.d
+      - ./data/saiku:/saiku/data/
