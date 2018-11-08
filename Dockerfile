@@ -1,4 +1,4 @@
-FROM openjdk:8-jre
+FROM openjdk:8-jre-slim
 
 ARG SAIKU_DOWNLOAD_URL=https://www.meteorite.bi/downloads/saiku-latest.zip
 
