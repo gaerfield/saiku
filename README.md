@@ -16,8 +16,8 @@ These files building a container-image of [saiku](https://github.com/OSBI/saiku)
 
 ## Usage
 
-1) generate an license and provide it to the docker-container
-2) use the file [docker-compose.yml](docker-compose.yml)
+1) generate an [license](https://licensing.meteorite.bi/login) and provide it to the docker-container
+2) use the file [docker-compose.yml](docker-compose.yml) (Alternatively you could pull the image from [docker-hub](https://hub.docker.com/r/gaerfield/saiku/) `docker pull gaerfield/saiku`)
 
     ```yaml
     version: '2'
@@ -27,7 +27,7 @@ These files building a container-image of [saiku](https://github.com/OSBI/saiku)
           context: https://github.com/gaerfield/saiku.git
         image: saiku
         ports:
-          - 10040:8080
+          - 8080
         volumes:
           # mounts used only for bootstraping (containers first creation)
           - ./config/saiku_license.lic:/saiku_license.lic
@@ -57,7 +57,8 @@ Normally on could to that through the setenv.sh-file or additional Java-Argument
 `sh`-Files within the folder get's executed in alphabetical order during bootstrap (the first time, the container starts up) **before** Saiku is started. Use it for example to download an additional library that is needed for running saiku (i.e. the mysql-connector-library gets downloaded by the example-script in [installMysqlLib.sh](config/bootstrapScripts/installMysqlLib.sh)).
 
 ## Links
+* [Image](https://hub.docker.com/r/gaerfield/saiku/) from Docker-Hub
 * Saiku:
   * [Github](https://github.com/OSBI/saiku)
   * [Homepage](https://community.meteorite.bi/)
-  * [Licence]()
+  * [License](https://licensing.meteorite.bi/login)

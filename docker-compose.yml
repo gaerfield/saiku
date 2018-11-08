@@ -1,11 +1,13 @@
 version: '2'
 services:
   saiku:
-    build:
-      context: https://github.com/gaerfield/saiku.git
-    image: saiku
+    # build it yourself
+    #build:
+    #  context: https://github.com/gaerfield/saiku.git
+    # or use prebuilt image
+    image: gaerfield/saiku
     ports:
-      - 10040:8080
+      - 8080
     volumes:
       - ./config/saiku_license.lic:/saiku_license.lic
       - ./config/cubes:/additionalCubes
