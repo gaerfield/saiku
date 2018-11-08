@@ -52,6 +52,10 @@ Normally on could to that through the setenv.sh-file or additional Java-Argument
 * *either*: copy Saiku's [startup-script](https://github.com/OSBI/saiku/blob/development/saiku-server/scripts/start-saiku.sh) and mount it into `$SAIKU_HOME/start-saiku.sh` (per default `/saiku/start-saiku.sh`)
 * *or*: provide a shell-script within `docker-entrypoint-initdb.d` that does some [sed-magic](https://askubuntu.com/questions/20414/find-and-replace-text-within-a-file-using-commands) to replace the arguments within the startup-script (beware of the fact, that this script is only executed once)
 
+### Why the `docker-entrypoint-initdb.d` - folder?
+
+`sh`-Files within the folder get's executed in alphabetical order during bootstrap (the first time, the container starts up) **before** Saiku is started. Use it for example to download an additional library that is needed for running saiku (i.e. the mysql-connector-library gets downloaded by the example-script in [config/bootstrapScripts/installMysqlLib.sh]).
+
 ## Links
 * Saiku:
   * [Github](https://github.com/OSBI/saiku)
