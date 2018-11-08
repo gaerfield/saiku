@@ -54,7 +54,7 @@ Normally on could to that through the setenv.sh-file or additional Java-Argument
 
 ### Why the `docker-entrypoint-initdb.d` - folder?
 
-`sh`-Files within the folder get's executed in alphabetical order during bootstrap (the first time, the container starts up) **before** Saiku is started. Use it for example to download an additional library that is needed for running saiku (i.e. the mysql-connector-library gets downloaded by the example-script in [config/bootstrapScripts/installMysqlLib.sh]).
+`sh`-Files within the folder get's executed in alphabetical order during bootstrap (the first time, the container starts up) **before** Saiku is started. Use it for example to download an additional library that is needed for running saiku (i.e. the mysql-connector-library gets downloaded by the example-script in [installMysqlLib.sh](config/bootstrapScripts/installMysqlLib.sh)).
 
 ## Links
 * Saiku:
