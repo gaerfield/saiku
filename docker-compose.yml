@@ -2,7 +2,7 @@ version: '2'
 services:
   saiku:
     build:
-      context: ./build/saiku
+      context: https://github.com/gaerfield/saiku.git
     image: saiku
     ports:
       - 10040:8080
